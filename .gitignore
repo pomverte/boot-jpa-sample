@@ -1,0 +1,14 @@
+# settings
+.settings/
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+target/
+
+/.classpath
+/.project
+
