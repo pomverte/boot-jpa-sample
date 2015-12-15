@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,24 +23,29 @@ import lombok.Data;
 @Table(name = "person")
 public class Person implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@NotNull
-	@Column
-	private String name;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "group_person_id", referencedColumnName = "id")
+    private GroupPerson groupPerson;
 
-	@NotNull
-	@Column
-	private String gender;
+    @NotNull
+    @Column
+    private String name;
 
-	@Temporal(TemporalType.DATE)
-	@Column
-	private Date birthdate;
+    @NotNull
+    @Column
+    private String gender;
 
-	@NotNull
-	@Column
-	private Long rank;
+    @Temporal(TemporalType.DATE)
+    @Column
+    private Date birthdate;
+
+    @NotNull
+    @Column
+    private Long rank;
 
 }

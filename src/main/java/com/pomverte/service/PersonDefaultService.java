@@ -39,4 +39,15 @@ public class PersonDefaultService implements PersonService {
         return this.personRepository.sumElderRank(fromRank);
     }
 
+    @Override
+    public List<PersonDto> findByGroupName(String groupName) {
+        Assert.notNull(groupName);
+        try {
+            return ListBeanUtils.copyProperties(this.personRepository.findByGroupName(groupName), PersonDto.class);
+        } catch (InstantiationException | IllegalAccessException e) {
+            log.error(e.getMessage(), e);
+            return Collections.emptyList();
+        }
+    }
+
 }

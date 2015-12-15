@@ -1,0 +1,17 @@
+CREATE TABLE GROUP_PERSON (
+	id bigint auto_increment primary key,
+	name varchar(255) not null
+);
+
+insert into GROUP_PERSON (name) values ('ATP');
+insert into GROUP_PERSON (name) values ('BOOST');
+
+ALTER TABLE PERSON ADD COLUMN GROUP_PERSON_ID int AFTER ID;
+
+UPDATE PERSON SET GROUP_PERSON_ID = 1 WHERE name IN ('hvle', 'mbon', 'stas');
+UPDATE PERSON SET GROUP_PERSON_ID = 2 WHERE name IN ('cmes', 'jsai', 'bmed');
+
+ALTER TABLE PERSON ADD FOREIGN KEY (GROUP_PERSON_ID) REFERENCES GROUP_PERSON(ID);
+ALTER TABLE PERSON ALTER COLUMN GROUP_PERSON_ID SET NOT NULL;
+
+commit;

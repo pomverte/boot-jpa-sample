@@ -1,9 +1,13 @@
 package com.pomverte.domain;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+
+import com.pomverte.domain.entity.Person;
 
 /**
  * WARN custom behaviour must be named as follow :
@@ -19,8 +23,10 @@ public class PersonRepositoryImpl implements PersonRepositoryCustom {
     private EntityManager em;
 
     @Override
-    public void toto() {
-        // ma query
+    public List<Person> findByGroupName(String groupName) {
+        return this.em
+                .createQuery("SELECT p FROM Person p JOIN p.groupPerson gp WHERE gp.name = :groupName", Person.class)
+                .setParameter("groupName", groupName).getResultList();
     }
 
 }

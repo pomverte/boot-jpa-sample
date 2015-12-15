@@ -30,4 +30,9 @@ public class PersonController {
         return new ResponseEntity<Long>(this.personService.sumElderRank(fromRank), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/findByGroupName/{groupName}", method = RequestMethod.GET)
+    public ResponseEntity<List<PersonDto>> findByGroupName(@PathVariable String groupName) {
+        return new ResponseEntity<List<PersonDto>>(this.personService.findByGroupName(groupName), HttpStatus.OK);
+    }
+
 }

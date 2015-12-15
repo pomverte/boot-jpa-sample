@@ -9,4 +9,6 @@ public interface PersonService {
     List<PersonDto> findByRank(Long rank);
 
     long sumElderRank(Long fromRank);
+
+    List<PersonDto> findByGroupName(String groupName);
 }

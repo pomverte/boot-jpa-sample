@@ -1,5 +1,11 @@
 package com.pomverte.domain;
 
+import java.util.List;
+
+import com.pomverte.domain.entity.Person;
+
 public interface PersonRepositoryCustom {
-    void toto();
+
+    List<Person> findByGroupName(String groupName);
+
 }
