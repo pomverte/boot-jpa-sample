@@ -38,4 +38,9 @@ public class Person implements Serializable {
 	@Column
 	private Long rank;
 
+    @Override
+    public String toString() {
+        return String.format("id[%s] name[%s] gender[%s] birthdate[%s] rank[%s]", this.id, this.name, this.gender,
+                this.birthdate, this.rank);
+    }
 }
