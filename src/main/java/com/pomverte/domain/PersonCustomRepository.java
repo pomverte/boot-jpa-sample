@@ -1,4 +1,4 @@
-package com.pomverte.repository;
+package com.pomverte.domain;
 
 public interface PersonCustomRepository {
 

@@ -1,4 +1,4 @@
-package com.pomverte.repository.entity;
+package com.pomverte.domain.entity;
 
 import java.io.Serializable;
 import java.util.Date;

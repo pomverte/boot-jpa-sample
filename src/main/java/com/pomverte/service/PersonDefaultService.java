@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pomverte.dto.PersonDto;
-import com.pomverte.repository.PersonRepository;
-import com.pomverte.repository.entity.Person;
+import com.pomverte.domain.PersonRepository;
+import com.pomverte.domain.entity.Person;
 
 @Service
 public class PersonDefaultService implements PersonService {

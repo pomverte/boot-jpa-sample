@@ -1,4 +1,4 @@
-package com.pomverte.repository;
+package com.pomverte.domain;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.pomverte.repository.entity.Person;
+import com.pomverte.domain.entity.Person;
 
 // http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.sample-app.finders.strategies
 public interface PersonRepository extends JpaRepository<Person, Long> {
