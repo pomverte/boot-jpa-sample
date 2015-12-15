@@ -19,7 +19,7 @@ public class PersonController {
     private PersonService personService;
 
     @RequestMapping(value = "/findByRank/{rank}", method = RequestMethod.GET)
-    List<PersonDto> findByRank(@PathVariable Long rank) {
+    public List<PersonDto> findByRank(@PathVariable Long rank) {
         return this.personService.findByRank(rank);
     }
 

@@ -13,6 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
+@Data
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "person")
@@ -38,9 +41,4 @@ public class Person implements Serializable {
 	@Column
 	private Long rank;
 
-    @Override
-    public String toString() {
-        return String.format("id[%s] name[%s] gender[%s] birthdate[%s] rank[%s]", this.id, this.name, this.gender,
-                this.birthdate, this.rank);
-    }
 }
