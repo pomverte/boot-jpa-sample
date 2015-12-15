@@ -19,7 +19,6 @@ public class PersonDefaultService implements PersonService {
 
     @Override
     public List<PersonDto> findByRank(Long rank) {
-        //        BeanUtils.copyProperties(source, target);
         List<PersonDto> result = new ArrayList<>();
         List<Person> found = this.personRepository.findByRank(rank);
         for (Person source : found) {
