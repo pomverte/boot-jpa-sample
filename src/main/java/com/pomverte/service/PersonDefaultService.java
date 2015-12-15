@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.pomverte.dto.PersonDto;
 import com.pomverte.domain.PersonRepository;
 import com.pomverte.domain.entity.Person;
+import com.pomverte.dto.PersonDto;
 
 @Service
+@Transactional
 public class PersonDefaultService implements PersonService {
 
     @Autowired
