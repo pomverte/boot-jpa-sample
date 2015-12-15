@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.pomverte.domain.entity.Person;
 
 // http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.sample-app.finders.strategies
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, Long>, PersonRepositoryCustom {
 
     List<Person> findByRank(Long rank);
 
