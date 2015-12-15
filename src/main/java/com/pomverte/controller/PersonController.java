@@ -21,8 +21,13 @@ public class PersonController {
     private PersonService personService;
 
     @RequestMapping(value = "/findByRank/{rank}", method = RequestMethod.GET)
-    public ResponseEntity<List<PersonDto>> findByRank(@PathVariable Long rank) {
-        return new ResponseEntity<List<PersonDto>>(this.personService.findByRank(rank), HttpStatus.OK);
+    public ResponseEntity<List<PersonDto>> findByRank(@PathVariable long rank) {
+            return new ResponseEntity<List<PersonDto>>(this.personService.findByRank(rank), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/sumElderRank/{fromRank}", method = RequestMethod.GET)
+    public ResponseEntity<Long> sumElderRank(@PathVariable Long fromRank) {
+        return new ResponseEntity<Long>(this.personService.sumElderRank(fromRank), HttpStatus.OK);
     }
 
 }

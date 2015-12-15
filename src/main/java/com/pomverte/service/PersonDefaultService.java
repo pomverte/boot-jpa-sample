@@ -1,17 +1,20 @@
 package com.pomverte.service;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import com.pomverte.domain.PersonRepository;
-import com.pomverte.domain.entity.Person;
 import com.pomverte.dto.PersonDto;
+import com.pomverte.utils.ListBeanUtils;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @Transactional
 public class PersonDefaultService implements PersonService {
@@ -21,14 +24,19 @@ public class PersonDefaultService implements PersonService {
 
     @Override
     public List<PersonDto> findByRank(Long rank) {
-        List<PersonDto> result = new ArrayList<>();
-        List<Person> found = this.personRepository.findByRank(rank);
-        for (Person source : found) {
-            PersonDto target = new PersonDto();
-            BeanUtils.copyProperties(source, target);
-            result.add(target);
+        Assert.notNull(rank);
+        try {
+            return ListBeanUtils.copyProperties(this.personRepository.findByRank(rank), PersonDto.class);
+        } catch (InstantiationException | IllegalAccessException e) {
+            log.error(e.getMessage(), e);
+            return Collections.emptyList();
         }
-        return result;
+    }
+
+    @Override
+    public long sumElderRank(Long fromRank) {
+        Assert.notNull(fromRank);
+        return this.personRepository.sumElderRank(fromRank);
     }
 
 }
