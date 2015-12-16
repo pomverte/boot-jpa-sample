@@ -8,4 +8,6 @@ public interface PersonRepositoryCustom {
 
     List<Person> findByGroupName(String groupName);
 
+    List<Person> findByGroupNameCriteria(String groupName);
+
 }
